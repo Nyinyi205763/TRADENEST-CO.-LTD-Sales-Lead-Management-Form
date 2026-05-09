@@ -419,7 +419,7 @@ const nlpProducts = [
 
 ];
 
-const nlpProducts = [
+const SPProducts = [
 "FDP16MM40CM",
 "FDP16MM30CM",
 "RDP16MM40CM",
@@ -476,6 +476,11 @@ selectedProducts = nlpProducts;
 
 }
 
+  if(this.value === "Spark"){
+
+selectedProducts = SPProducts;
+
+}
 selectedProducts.forEach(function(product){
 
 const option =
