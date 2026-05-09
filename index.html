@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sales Lead Management Form</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+.trade{
+  color:#183b6b;
+}
+
+.nest{
+  color:#8cc63f;
+}
+
+body{
+  background:#f5f5f5 url('tradenestlogo.png') center center no-repeat;
+  background-size:320px;
+  padding:30px;
+}
+
+.container{
+  max-width:650px;
+  margin:auto;
+  background:rgba(255,255,255,0.96);
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.header{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.logo{
+  width:150px;
+  margin-bottom:-50px;
+}
+
+.header h1{
+  font-size:38px;
+  font-weight:800;
+  margin-bottom:5px;
+}
+
+.subtitle{
+  color:#666;
+  font-size:15px;
+  font-weight:600;
+  border-bottom:4px solid #183b6b;
+  padding-bottom:15px;
+}
+
+label{
+  display:block;
+  margin-top:16px;
+  margin-bottom:7px;
+  font-weight:700;
+  color:#222;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #d1d5db;
+  border-radius:12px;
+  font-size:15px;
+  background:white;
+}
+
+textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+button{
+  width:100%;
+  margin-top:28px;
+  padding:15px;
+  border:none;
+  border-radius:14px;
+  background:#183b6b;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#102847;
+}
+
+.message{
+  margin-top:20px;
+  padding:14px;
+  border-radius:12px;
+  text-align:center;
+  display:none;
+  font-weight:bold;
+}
+
+.loading{
+  background:#e0f2fe;
+  color:#075985;
+}
+
+.success{
+  background:#dcfce7;
+  color:#166534;
+}
+
+.error{
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">
+
+    <img src="TRADENEST LOGO.png" class="logo">
+
+    <h1>
+      <span class="trade">TRADE</span><span class="nest">NEST</span> CO., LTD
+    </h1>
+
+    <p class="subtitle">
+      Sales Lead Management Form
+    </p>
+
+  </div>
+
+  <form id="leadForm">
+
+    <label>Customer Name</label>
+    <input type="text" name="customerName" required>
+
+    <label>Customer Type</label>
+    <select name="customerType" required>
+
+      <option value="">
+        Select Customer Type
+      </option>
+
+      <option>
+        Wholesaler
+      </option>
+
+      <option>
+        Retailer
+      </option>
+
+      <option>
+        User
+      </option>
+
+    </select>
+
+    <label>Phone Number</label>
+    <input type="text" name="phone" required>
+
+    <label>Interested Brand</label>
+
+    <select
+    id="brandSelect"
+    name="interestedBrand"
+    required>
+
+      <option value="">
+        Choose Interested Brand
+      </option>
+
+      <option value="Aung TaKhon">
+        Aung TaKhon
+      </option>
+
+      <option value="New Life Plastic">
+        New Life Plastic
+      </option>
+
+    </select>
+
+    <label>Interested Product</label>
+
+    <select
+    id="productSelect"
+    name="interestProduct"
+    required>
+
+      <option value="">
+        Choose Items Name
+      </option>
+
+    </select>
+
+    <label>Source Channel</label>
+
+    <select
+    name="sourceChannel"
+    required>
+
+      <option value="">
+        Select Channel
+      </option>
+
+      <option>
+        Facebook
+      </option>
+
+      <option>
+        TikTok
+      </option>
+
+      <option>
+        Flyers
+      </option>
+
+      <option>
+        Phone Call
+      </option>
+
+      <option>
+        Walk In
+      </option>
+
+      <option>
+        Referral
+      </option>
+
+    </select>
+
+    <label>Assigned Sales Person</label>
+
+    <select
+    name="assignedSales"
+    required>
+
+      <option value="">
+        Select Sales Person
+      </option>
+
+      <option>
+        Min Khant Oo
+      </option>
+
+      <option>
+        Zin Min Ko
+      </option>
+
+      <option>
+        Aung Phyo Wai
+      </option>
+
+      <option>
+        Ei Ei Moe
+      </option>
+
+    </select>
+
+    <label>Status</label>
+
+    <select
+    name="status"
+    required>
+
+      <option value="">
+        Select Status
+      </option>
+
+      <option>
+        Pending
+      </option>
+
+      <option>
+        Contacted
+      </option>
+
+      <option>
+        Wait Reply (Price Deal)
+      </option>
+
+      <option>
+        Won
+      </option>
+
+      <option>
+        Lost
+      </option>
+
+    </select>
+
+    <label>
+      Last Conversation (Remark)
+    </label>
+
+    <textarea
+    name="remark">
+    </textarea>
+
+    <label>
+      Sale Amount (If Won)
+    </label>
+
+    <input
+    type="number"
+    name="saleAmount">
+
+    <button type="submit">
+
+      Submit Lead
+
+    </button>
+
+    <div
+    class="message loading"
+    id="loadingMsg">
+
+      Adding your data to system...
+
+    </div>
+
+    <div
+    class="message success"
+    id="successMsg">
+
+      Success! Your data has been added to Google Sheet.
+
+    </div>
+
+    <div
+    class="message error"
+    id="errorMsg">
+
+      Something went wrong. Please try again.
+
+    </div>
+
+  </form>
+
+</div>
+
+<script>
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbwkVho9bTq7k1S7dbrwLf20_ns_X6FLgVToULebzQKF5U8xNp36h-1DVv0CKu3YOA9Mcg/exec";
+
+const atkProducts = [
+
+"NBP1.0-2.45-0H",
+"NBP1.0-3-0H",
+"NBP1.0-3-5H",
+"NBP1.0-3-7H",
+"NBP1.0-3-8H",
+"NBP1.0-4-0H",
+"NBP1.5-4.7-0H",
+"NBP1.5-4.7-5H",
+"NBP1.5-4.7-7H",
+"NBP1.5-4.7-8H",
+"NBP1.5-6-0H",
+"NBP1.5-6-5H",
+"NBP1.5-6-7H",
+"NBP1.5-6-8H",
+"NBP2.0-2.45-0H",
+"NWP2.0-2.45-0H",
+"NWP2.0-6-0H",
+"NBP2.0-5.7-0H",
+"NBP2.0-5.7-5H",
+"NBP2.0-5.7-7H",
+"NBP2.0-7-0H",
+"NBP2.5-6.8-0H",
+"NBP2.5-6.8-9H",
+"NBP3.0-4.75-0H",
+"NBP3.0-4.5-0H",
+"NBP3.0-9.5-0H",
+"NBP3.0-12.5-0H",
+"NWP3.0-10-0H",
+"NBP4.0-16-0H",
+"NBP4.0-18-0H",
+"NSK1-T",
+"NSK2x1-4W",
+"NSKSP-FP",
+"NSKSP-Red",
+"NSKSP-Green",
+"NSKMINI-O",
+"NSKMINI-Y",
+"NSK4x2-T",
+"NSK2x2-Black",
+"NSK2-TB",
+"NSK3-TB",
+"NSK4-GDP",
+"NSK3-GDP",
+"NSK2-GDP",
+"NSK3x1-Black",
+"NSK3x1.5-Black",
+"NSK4x2",
+"NSK4x2-White",
+"NSK2-Big",
+"NSKSP-Yellow",
+"FDP16MM40CM",
+"FDP16MM30CM",
+"RDP16MM40CM",
+"ATK-PS-500CC",
+"BC16A-Ba"
+
+];
+
+const nlpProducts = [
+
+"PP",
+"LDPE",
+"Water Sprinkler",
+"Recycle Material"
+
+];
+
+const brandSelect =
+document.getElementById(
+"brandSelect"
+);
+
+const productSelect =
+document.getElementById(
+"productSelect"
+);
+
+const form =
+document.getElementById(
+"leadForm"
+);
+
+const loadingMsg =
+document.getElementById(
+"loadingMsg"
+);
+
+const successMsg =
+document.getElementById(
+"successMsg"
+);
+
+const errorMsg =
+document.getElementById(
+"errorMsg"
+);
+
+brandSelect.addEventListener(
+"change",
+function(){
+
+productSelect.innerHTML =
+'<option value="">Choose Items Name</option>';
+
+let selectedProducts = [];
+
+if(this.value === "Aung TaKhon"){
+
+selectedProducts = atkProducts;
+
+}
+
+if(this.value === "New Life Plastic"){
+
+selectedProducts = nlpProducts;
+
+}
+
+selectedProducts.forEach(function(product){
+
+const option =
+document.createElement(
+"option"
+);
+
+option.value = product;
+
+option.textContent = product;
+
+productSelect.appendChild(
+option
+);
+
+});
+
+});
+
+form.addEventListener(
+"submit",
+async function(e){
+
+e.preventDefault();
+
+loadingMsg.style.display =
+"block";
+
+successMsg.style.display =
+"none";
+
+errorMsg.style.display =
+"none";
+
+const formData =
+new FormData(form);
+
+const data =
+Object.fromEntries(
+formData.entries()
+);
+
+try{
+
+await fetch(
+SCRIPT_URL,
+{
+method:"POST",
+
+mode:"no-cors",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify(data)
+
+});
+
+loadingMsg.style.display =
+"none";
+
+successMsg.style.display =
+"block";
+
+form.reset();
+
+productSelect.innerHTML =
+'<option value="">Choose Items Name</option>';
+
+}catch(error){
+
+loadingMsg.style.display =
+"none";
+
+errorMsg.style.display =
+"block";
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
